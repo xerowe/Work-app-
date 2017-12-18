@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+
+<div class="container py-5">
+
+  <h1>Welcome</h1>
+
+  <div class="p-3 border rounded"><% tasks.forEach((task) => { %>
+    <div class="row p-3">
+      <div class="col task-name">
+        <h5><%= task.name %></h5>
+      </div>
+      <div class="col links">
+        <a href="" class="btn btn-sm btn-outline-secondary">Show</a>
+      </div>
+      <div class="col qa">
+        <p><%= task.qa.toDateString() %></p>
+      </div>
+      <div class="col proof">
+        <p><%= task.proof.toDateString() %></p>
+      </div>
+      <div class="col comments">
+        <p>Created By: <%= task.author.username %></p>
+      </div>
+      <div class="col view" >
+        <a href="/task/<%= task._id %>" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  <% }); %>
+  <a href="task/new" class="btn btn-warning">Add New Task</a>
+  </div>
+</div>
+
+
+
+<% include ../partials/footer %>

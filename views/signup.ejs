@@ -1,0 +1,13 @@
+<% include ./partials/header %>
+
+<div class="container mt-5 p-5 bg-white border rounded">
+  <div class="row mx-auto justify-content-center">
+    <form action="/signup" method="POST">
+      <input type="text" name="username" placeholder="Enter User Name">
+      <input type="password" name="password" placeholder="Enter Password">
+      <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<% include ./partials/footer %>

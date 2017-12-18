@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the login page.
+// -----------------------------------------------------------------------------
+#login {
+  height: 100vh;
+  background: linear-gradient(to bottom,rgba(78,94,170, 0.9),rgba(78,94,170, 0.9)),url("../../images/login-bg.jpg");
+  #login-box {
+    background:  #999ede;
+    position: relative;
+    .form-holder {
+      padding: 6rem 2rem;
+      position: absolute;
+      top: -16%;
+      left: 5%;
+      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+    }
+  .btn {
+    background: #ff73b3;
+  }
+  }
+}

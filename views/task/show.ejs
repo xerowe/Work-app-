@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+
+<div class="container py-5">
+<h1><%= task.name %></h1>
+
+<div class="row py-5 px-3 bg-white border rounded">
+
+    <div class="col-6 py-2">
+      <h4>This is the Landing Page Link</h4>
+      <p class="border border-info p-1"><%= task.lpLink %></p>
+    </div>
+    <div class="col-6 py-2">
+      <h4>This is the Offer Page Link</h4>
+      <p class="border border-info p-1"><%= task.opLink %></p>
+    </div>
+
+    <div class="col-6 py-2">
+      <h4><%= task.name %> Was Send For Technical Check:</h4>
+      <p class="border border-info p-1"><%= task.qa.toDateString() %></p>
+    </div>
+    <div class="col-6 py-2">
+      <h4><%= task.name %> Was Send For Proofreading:</h4>
+      <p class="border border-info p-1"><%= task.proof.toDateString() %></p>
+  </div>
+  <div class="col-11 m-auto border border-info rounded py-2">
+    <% task.comments.forEach(function(comment){ %>
+        <p>
+            <strong><%= comment.author.username %></strong> - <%= comment.text %>
+        </p>
+          <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+        <a class="btn btn-sm btn-warning" href="/task/<%=task._id %>/comments/<%=comment._id %>/edit">Edit</a>
+        <form class="d-inline" action="/task/<%=task._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            </form>
+                            <% } %>
+    <% }) %>
+  </div>
+  <div class="row m-auto pt-5">
+    <div class="col">
+        <a href="/" class="btn btn btn-outline-secondary">Go Back</a>
+    </div>
+    <% if(currentUser && task.author.id.equals(currentUser._id)) { %>
+    <div class="col">
+        <a href="/task/<%= task._id %>/edit" class="btn btn-outline-warning">Edit</a>
+    </div>
+    <div class="col">
+      <form action="/task/<%= task._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+      <% } %>
+    <div class="col">
+        <a href="/task/<%= task._id %>/comments/new" class="btn btn-outline-warning">Add Comment</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,53 @@
+<% include ../partials/header %>
+
+
+  <div class="container">
+      <h1>Edit <%= task.name %></h1>
+      <h4>Plase Enter Your Data Below</h4>
+
+      <form action="/task/<%= task._id %>?_method=PUT" method="POST" class="p-5 bg-white border rounded">
+        <div class="form-group">
+          <label for="name">Task Name</label>
+          <input type="text" class="form-control" name="task[name]" value="<%= task.name %>">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="lpLink">Landing Page Link</label>
+            <input type="url" class="form-control" name="task[lpLink]" value="<%= task.lpLink %>">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="opLink">Offer Page Link</label>
+            <input type="url" class="form-control" name="task[opLink]" value="<%= task.opLink %>">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="qa">Send For Quality Assurance Check: </label>
+            <input type="date" class="form-control datePicker" name="task[qa]">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="proof">Send For Proofreading: </label>
+            <input type="date" class="form-control datePicker" name="task[proof]">
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="task[comments]" class="w-100"><%= task.comments %></textarea>
+        </div>
+        <a href="/" class="btn btn-secondary">Go Back</a>
+        <button type="submit" class="btn btn-success">Edit</button>
+      </form>
+  </div>
+<script type="text/javascript">
+Date.prototype.toDateInputValue = (function() {
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  return local.toJSON().slice(0,10);
+});
+
+var datePicker = document.getElementsByClassName('datePicker')
+for ( var i = 0; i < datePicker.length; i++ ) (function(i){
+      datePicker[i].value = new Date().toDateInputValue();
+})(i);
+
+</script>
+<% include ../partials/footer %>
