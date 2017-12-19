@@ -3,56 +3,60 @@ const router   = express.Router();
 const passport = require('passport');
 const User     = require('../models/user');
 const Task     = require('../models/task');
+const middleware = require("../middleware");
 
-// router.get('/', (req, res) => {
-//   // Get all TASK from DB
-//   Task.find({}, (err, AllTasks) => {
-//     if(err) {
-//       console.log(err);
-//     } else {
-//       res.render('task/index', {tasks: AllTasks });
-//     }
-//   });
-// });
 
 router.get('/', (req, res) => {
-  res.render('login');
+  res.render('index');
 });
 
 // AUTH ROUTES
 router.get('/signup', (req, res) => {
-  res.render('signup');
+  res.redirect('/');
+});
+// AUTH ROUTES
+router.get('/login', (req, res) => {
+  res.redirect('/');
 });
 
 router.post('/signup', (req, res) => {
   let newUser = new User({username: req.body.username});
   User.register(newUser, req.body.password, (err, user) => {
     if(err) {
-      console.log(err);
-      return res.render('signup');
+      req.flash('error', err.message)
+      return res.redirect('/');
     }
     passport.authenticate('local')(req, res, () => {
-      res.redirect('/');
+      res.redirect('/dashboard');
     });
   });
 });
 
-//Show Login Form
-router.get('/login', (req, res) => {
-  res.render('login');
-});
-
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: 'login'
+  successRedirect: '/dashboard',
+  failureRedirect: '/',
+  failureFlash : true
 }), (req, res) => {
+
 });
 
 //Log out
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash("error", "Logged you out!");
-  res.redirect('/landing');
+  req.flash('success', "Logged you out!");
+  res.redirect('/');
+});
+
+////Dashboard - show all Task
+router.get('/dashboard', middleware.isLoggedIn, (req, res) => {
+  // Get all TASK from DB
+  Task.find({}, (err, AllTasks) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.render('dashboard', {tasks: AllTasks });
+    }
+  });
 });
 
 module.exports = router;

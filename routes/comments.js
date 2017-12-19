@@ -76,39 +76,10 @@ router.delete("/:comment_id", middleware.checkUserOwnership,  (req, res) => {
        if(err){
            res.redirect("back");
        } else {
+           req.flash('success', 'Comment deleted');
            res.redirect("/task/" + req.params.id);
        }
     });
 });
-
-
-// //midaware
-// function isLoggedIn(req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     res.redirect("/login");
-// }
-//
-// // Check If the User is the same as the creator
-// function checkUserOwnership (req, res, next) {
-//  if(req.isAuthenticated()){
-//         Task.findById(req.params.comment_id, function(err, foundComment){
-//            if(err){
-//                res.redirect("back");
-//            }  else {
-//                // does user own the commnet?
-//             if(foundComment.author.id.equals(req.user._id)) {
-//                 next();
-//             } else {
-//                 res.redirect("back");
-//             }
-//            }
-//         });
-//     } else {
-//         res.redirect("back");
-//     }
-// }
-//
 
 module.exports = router;

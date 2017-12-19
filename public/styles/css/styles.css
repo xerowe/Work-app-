@@ -7233,6 +7233,20 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important; }
 
+.alert-danger {
+  background: #e83f56;
+  color: #fff;
+  text-align: center;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22); }
+
+.alert-success {
+  background: #01cb6f;
+  color: #fff;
+  text-align: center;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22); }
+
 /**
  * Set up a decent box model on the root element
  */
@@ -7328,6 +7342,8 @@ body {
   height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(78, 94, 170, 0.9)), to(rgba(78, 94, 170, 0.9))), url("../../images/login-bg.jpg");
   background: linear-gradient(to bottom, rgba(78, 94, 170, 0.9), rgba(78, 94, 170, 0.9)), url("../../images/login-bg.jpg"); }
+  #login .container {
+    height: 105px; }
   #login #login-box {
     background: #999ede;
     position: relative; }
@@ -7340,3 +7356,6 @@ body {
       box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22); }
     #login #login-box .btn {
       background: #ff73b3; }
+    #login #login-box #signup-form, #login #login-box #login-from {
+      -webkit-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in; }

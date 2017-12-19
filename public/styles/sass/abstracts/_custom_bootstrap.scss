@@ -1,0 +1,13 @@
+.alert-danger {
+  background: #e83f56;
+  color: #fff;
+  text-align: center;
+  @include normal-box-shadow();
+}
+
+.alert-success {
+  background: #01cb6f;
+  color: #fff;
+  text-align: center;
+  @include normal-box-shadow();
+}

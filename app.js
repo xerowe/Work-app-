@@ -17,7 +17,7 @@ const commentRoutes  = require("./routes/comments");
 const indexRoutes  = require("./routes/index");
 
 //Conect to the DataBase
-mongoose.connect('mongodb://test:test@ds123136.mlab.com:23136/task');
+mongoose.connect('mongodb://miroslav:namiroparolata@ds161136.mlab.com:61136/work-log');
 // set the view engine
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -53,4 +53,4 @@ app.use("/task", taskRoutes);
 app.use("/task/:id/comments", commentRoutes);
 
 
-app.listen(3000, () => console.log('App is starting on port 3000!'));
+app.listen(7895, () => console.log('App is starting on port 3000!'));

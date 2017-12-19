@@ -4,7 +4,7 @@ const Task = require("../models/task");
 const middleware = require("../middleware");
 
 ////INDEX - show all Task
-router.get('/', (req, res) => {
+router.get('/', middleware.isLoggedIn, (req, res) => {
   // Get all TASK from DB
   Task.find({}, (err, AllTasks) => {
     if(err) {
@@ -33,7 +33,8 @@ router.post('/', middleware.isLoggedIn, (req,res) => {
     if(err) {
       console.log(err);
     } else {
-      res.redirect('/')
+      req.flash('success', 'Task created successful')
+      res.redirect('/dashboard')
     }
   });
 });
@@ -63,7 +64,7 @@ router.get("/:id/edit", middleware.checkUserOwnership,  (req, res) => {
 
     Task.findById(req.params.id, function(err, foundTask){
         if(err){
-            res.redirect("/");
+            res.redirect("back");
         } else {
             res.render("task/edit", {task: foundTask});
         }
@@ -86,39 +87,11 @@ router.put('/:id', middleware.checkUserOwnership,  (req, res) => {
 router.delete('/:id', middleware.checkUserOwnership, (req, res) => {
   Task.findByIdAndRemove(req.params.id, (err) => {
     if(err) {
-      res.redirect('/');
+      res.redirect('/task');
     } else {
-      res.redirect('/');
+      res.redirect('/task');
     }
   })
 });
-
-// //midaware
-// function isLoggedIn(req, res, next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     res.redirect("/login");
-// }
-// // Check If the User is the same as the creator
-// function checkUserOwnership (req, res, next) {
-//  if(req.isAuthenticated()){
-//         Task.findById(req.params.id, function(err, foundTask){
-//            if(err){
-//                res.redirect("back");
-//            }  else {
-//                // does user own the campground?
-//             if(foundTask.author.id.equals(req.user._id)) {
-//                 next();
-//             } else {
-//                 res.redirect("back");
-//             }
-//            }
-//         });
-//     } else {
-//         res.redirect("back");
-//     }
-// }
-
 
 module.exports = router;

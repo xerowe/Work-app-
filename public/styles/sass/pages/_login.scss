@@ -4,6 +4,9 @@
 #login {
   height: 100vh;
   background: linear-gradient(to bottom,rgba(78,94,170, 0.9),rgba(78,94,170, 0.9)),url("../../images/login-bg.jpg");
+  .container {
+    height: 105px;
+  }
   #login-box {
     background:  #999ede;
     position: relative;
@@ -12,10 +15,13 @@
       position: absolute;
       top: -16%;
       left: 5%;
-      box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+      @include normal-box-shadow;
     }
   .btn {
     background: #ff73b3;
   }
+    #signup-form, #login-from {
+      transition: all 0.3s ease-in;
+    }
   }
 }
