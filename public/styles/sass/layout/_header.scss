@@ -1,3 +1,26 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+header {
+  padding: 0.2rem 0;
+  background: #2f333e;
+  color: #fff;
+  @include normal-box-shadow();
+  .search-box {
+    display: none;
+  }
+  .navbar-holder {
+    ul,p  {
+      margin-bottom: 0;
+    }
+  .user-avatar {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    }
+  }
+}
+
+.content-inner {
+    width: calc(100% - 250px);
+}

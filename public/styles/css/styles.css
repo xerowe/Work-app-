@@ -7338,6 +7338,26 @@ body {
   position: absolute;
   width: 1px; }
 
+header {
+  padding: 0.2rem 0;
+  background: #2f333e;
+  color: #fff;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22); }
+  header .search-box {
+    display: none; }
+  header .navbar-holder ul, header .navbar-holder p {
+    margin-bottom: 0; }
+  header .navbar-holder .user-avatar {
+    border: 1px solid #fff;
+    border-radius: 50%; }
+
+.content-inner {
+  width: calc(100% - 250px); }
+
+.side-navbar {
+  width: 250px; }
+
 #login {
   height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(78, 94, 170, 0.9)), to(rgba(78, 94, 170, 0.9))), url("../../images/login-bg.jpg");
