@@ -1,0 +1,9 @@
+#dashboard {
+  .jumbotron {
+    background: $white;
+    box-shadow: $small-box-shadow;
+    .date-holder {
+      border-right: 1px solid #cccccc;
+    }
+  }
+}

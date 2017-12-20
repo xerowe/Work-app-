@@ -1,31 +1,56 @@
 <% include ./partials/header %>
 
-<div class="content-inner">
-  <div class="container py-5">
+<div id="dashboard">
+  <div class="container-fluid">
+    <div class="jumbotron">
+  	<h1 class="mb-4">Hello, <%= currentUser.username %>!</h1>
+    <div class="row">
+      <div class="recent-notes card">
+        <div class="card-body p-0">
+          <div class="item">
+            <div class="row">
+              <% note.forEach((note) => { %>
 
-    <h1>Welcome</h1>
 
-    <div class="p-3 border rounded"><% tasks.forEach((task) => { %>
-      <div class="row p-3">
-        <div class="col task-name">
-          <h5><%= task.name %></h5>
-        </div>
-        <div class="col links">
-          <a href="" class="btn btn-sm btn-outline-secondary">Show</a>
-        </div>
-        <div class="col qa">
-          <p><%= task.qa.toDateString() %></p>
-        </div>
-        <div class="col proof">
-          <p><%= task.proof.toDateString() %></p>
-        </div>
-        <div class="col comments">
-          <p>Created By: <%= task.author.username %></p>
-        </div>
-        <div class="col view" >
-          <a href="/task/<%= task._id %>" class="btn btn-primary">View</a>
+              <div class="col-4 date-holder text-right">
+                <p>5 hours ago</p>
+              </div>
+              <div class="col-8">
+                <h5><%= note.title %></h5>
+                <p><%= note.text %></p>
+              </div>
+                <% }); %>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  	<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  	<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  	<p class="lead"><a class="btn btn-primary  mt-2" href="#" role="button">Learn more</a></p>
+    </div>
+  </div>
+  <div class="p-3 border rounded"><% tasks.forEach((task) => { %>
+    <div class="row p-3">
+      <div class="col task-name">
+        <h5><%= task.name %></h5>
+      </div>
+      <div class="col links">
+        <a href="" class="btn btn-sm btn-outline-secondary">Show</a>
+      </div>
+      <div class="col qa">
+        <p><%= task.qa.toDateString() %></p>
+      </div>
+      <div class="col proof">
+        <p><%= task.proof.toDateString() %></p>
+      </div>
+      <div class="col comments">
+        <p>Created By: <%= task.author.username %></p>
+      </div>
+      <div class="col view" >
+        <a href="/task/<%= task._id %>" class="btn btn-primary">View</a>
+      </div>
+    </div>
     <% }); %>
     <a href="task/new" class="btn btn-warning">Add New Task</a>
     </div>

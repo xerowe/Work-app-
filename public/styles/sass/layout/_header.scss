@@ -6,7 +6,7 @@ header {
   padding: 0.2rem 0;
   background: #2f333e;
   color: #fff;
-  @include normal-box-shadow();
+  box-shadow: $normal-box-shadow;
   .search-box {
     display: none;
   }

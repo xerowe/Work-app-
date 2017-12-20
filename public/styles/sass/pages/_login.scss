@@ -15,7 +15,7 @@
       position: absolute;
       top: -16%;
       left: 5%;
-      @include normal-box-shadow;
+      box-shadow: $normal-box-shadow;
     }
   .btn {
     background: #ff73b3;

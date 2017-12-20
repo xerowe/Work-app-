@@ -27,11 +27,13 @@
 // 5. Components
 @import
   'components/button',
-  'components/sidebar';
+  'components/sidebar',
+  'components/page-header';
 
 // 6. Page-specific styles
 @import
-  'pages/login';
+  'pages/login',
+  'pages/dashboard';
 
 // 7. Themes
 @import

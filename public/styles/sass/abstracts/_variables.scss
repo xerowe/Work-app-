@@ -21,7 +21,8 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 /// Copy text color
 /// @type Color
 $text-color: rgb(34, 34, 34) !default;
-
+/// White color
+$white: rgb(253, 253, 253) !default;
 /// Main brand color
 /// @type Color
 $brand-color: rgb(229, 0, 80) !default;
@@ -38,7 +39,11 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
-
+/// BOX SHADOW
+/// Normal Box Shadow
+$normal-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.22);
+/// Small Box Shadow
+$small-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 
 
 

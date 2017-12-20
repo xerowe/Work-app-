@@ -89,6 +89,7 @@ router.delete('/:id', middleware.checkUserOwnership, (req, res) => {
     if(err) {
       res.redirect('/task');
     } else {
+      req.flash('success', 'Task Successfully Deleted');
       res.redirect('/task');
     }
   })

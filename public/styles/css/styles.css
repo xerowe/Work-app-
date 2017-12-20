@@ -7233,6 +7233,9 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important; }
 
+.alert {
+  padding: 0.2rem 0; }
+
 .alert-danger {
   background: #e83f56;
   color: #fff;
@@ -7275,6 +7278,9 @@ a {
   a:hover, a:active, a:focus {
     color: #222222;
     text-decoration: underline; }
+
+body {
+  background: #EEF5F9; }
 
 /**
  * Basic typography style for copy text
@@ -7356,7 +7362,17 @@ header {
   width: calc(100% - 250px); }
 
 .side-navbar {
-  width: 250px; }
+  width: 250px;
+  background: #fff;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  border-right: 1px solid #cccccc; }
+
+.page-header {
+  background: #fff;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); }
 
 #login {
   height: 100vh;
@@ -7379,3 +7395,10 @@ header {
     #login #login-box #signup-form, #login #login-box #login-from {
       -webkit-transition: all 0.3s ease-in;
       transition: all 0.3s ease-in; }
+
+#dashboard .jumbotron {
+  background: #fff;
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); }
+  #dashboard .jumbotron .date-holder {
+    border-right: 1px solid #cccccc; }

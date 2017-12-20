@@ -9,12 +9,14 @@ const methodOverride  = require('method-override');
 const User            = require('./models/user');
 const Task            = require('./models/task');
 const Comment         = require("./models/comment");
+const Note            = require("./models/note");
 
 
 // Require Routes
 const taskRoutes = require('./routes/task');
 const commentRoutes  = require("./routes/comments");
 const indexRoutes  = require("./routes/index");
+const noteRoutes  = require("./routes/note");
 
 //Conect to the DataBase
 mongoose.connect('mongodb://miroslav:namiroparolata@ds161136.mlab.com:61136/work-log');
@@ -26,6 +28,7 @@ app.use(express.static(__dirname + "/public"));
 // Method override
 app.use(methodOverride('_method'));
 app.use(flash());
+app.locals.moment = require('moment');
 
 //PASPORT CONFIG
 app.use(require("express-session")({
@@ -51,6 +54,7 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/task", taskRoutes);
 app.use("/task/:id/comments", commentRoutes);
+app.use("/note", noteRoutes);
 
 
-app.listen(7895, () => console.log('App is starting on port 3000!'));
+app.listen(7841, () => console.log('App is starting on port 3000!'));

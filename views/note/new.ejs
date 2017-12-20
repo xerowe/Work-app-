@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+
+
+
+      <form action="/note" method="POST" class="p-5 bg-white border rounded">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="text">Landing Page Link</label>
+            <input type="text" class="form-control" name="text" placeholder="Enter text">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="title">Task Name</label>
+            <input type="text" class="form-control" name="title" placeholder="Enter Note Title">
+          </div>
+        </div>
+        <a href="/dashboard" class="btn btn-secondary">Go Back</a>
+        <button type="submit" class="btn btn-success">Add New Task</button>
+      </form>
+  </div>
+<% include ../partials/footer %>

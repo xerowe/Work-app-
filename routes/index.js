@@ -3,6 +3,7 @@ const router   = express.Router();
 const passport = require('passport');
 const User     = require('../models/user');
 const Task     = require('../models/task');
+const Note     = require('../models/note');
 const middleware = require("../middleware");
 
 
@@ -47,16 +48,25 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-////Dashboard - show all Task
-router.get('/dashboard', middleware.isLoggedIn, (req, res) => {
-  // Get all TASK from DB
-  Task.find({}, (err, AllTasks) => {
-    if(err) {
-      console.log(err);
-    } else {
-      res.render('dashboard', {tasks: AllTasks });
-    }
-  });
+
+
+router.get("/dashboard" , middleware.isLoggedIn, function(req, res){
+   //lookup campground using ID
+   Task.find({}, function(err, task){
+       if(err){
+           res.redirect("back");
+       } else {
+        Note.find({}, function(err, note){
+           if(err){
+               console.log(err);
+           } else {
+             res.render('dashboard', {tasks:task, note: note})
+           }
+        });
+       }
+   });
 });
+
+
 
 module.exports = router;
