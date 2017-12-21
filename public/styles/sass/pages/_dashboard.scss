@@ -1,9 +1,16 @@
 #dashboard {
-  .jumbotron {
-    background: $white;
-    box-shadow: $small-box-shadow;
-    .date-holder {
-      border-right: 1px solid #cccccc;
-    }
+.card {
+  border-radius: 0;
+  .note {
+    display: inline-block;
+    color: $white;
+    background: #c45656;
+    padding: 0.5rem 1rem;
+    transform: translateY(-90%);
   }
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
 }

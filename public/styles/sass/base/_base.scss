@@ -25,15 +25,19 @@ html {
  * Basic styles for links
  */
 a {
-  color: $brand-color;
+  color: $orange;
   text-decoration: none;
 
   @include on-event {
-    color: $text-color;
+    color: darken($orange, 10%);
     text-decoration: underline;
   }
 }
 
 body {
-  background: #EEF5F9;
+  background: #f8f8f8;
+}
+
+button {
+  cursor: pointer;
 }

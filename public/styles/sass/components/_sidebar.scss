@@ -1,7 +1,14 @@
 .side-navbar {
-  width: 250px;
-  background: $white;
-  box-shadow: $small-box-shadow;
-  height: 100vh;
-  border-right: 1px solid #cccccc;
+  width: 200px;
+  .sidebar-header {
+    .avatar {
+      margin-bottom: 1rem;
+    }
+    .title {
+      text-transform: capitalize;
+    }
+  }
+  .list-unstyled {
+    text-align: center;
+  }
 }

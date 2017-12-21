@@ -57,4 +57,4 @@ app.use("/task/:id/comments", commentRoutes);
 app.use("/note", noteRoutes);
 
 
-app.listen(7841, () => console.log('App is starting on port 3000!'));
+app.listen(1003, () => console.log('App is starting on port 3000!'));

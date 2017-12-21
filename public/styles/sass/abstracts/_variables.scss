@@ -8,7 +8,7 @@
 
 /// Regular font family
 /// @type List
-$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$ff-ss: 'Poppins', sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
@@ -20,16 +20,17 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 /// Copy text color
 /// @type Color
-$text-color: rgb(34, 34, 34) !default;
+$text-color: rgb(131, 131, 131) !default;
 /// White color
 $white: rgb(253, 253, 253) !default;
 /// Main brand color
 /// @type Color
 $brand-color: rgb(229, 0, 80) !default;
+$orange: rgb(252, 196, 55) !default;
 
 /// Light grey
 /// @type Color
-$light-grey: rgb(237, 237, 237) !default;
+$light-grey: rgba(131, 131, 131, 0.1)!default;
 
 /// Medium grey
 /// @type Color

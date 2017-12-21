@@ -26,6 +26,19 @@ router.post('/', middleware.isLoggedIn, (req,res) => {
   });
 });
 
+//DELETE - delete task
+router.delete('/:id', middleware.checkUserOwnership, (req, res) => {
+  Task.findByIdAndRemove(req.params.id, (err) => {
+    if(err) {
+      console.log(err);
+      res.redirect('/dashboard');
+    } else {
+      req.flash('success', 'Note Successfully Deleted');
+      res.redirect('/dashboard');
+    }
+  })
+});
+
 
 
 module.exports = router;

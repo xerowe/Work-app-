@@ -1,9 +1,40 @@
 <% include ./partials/header %>
 
 <div id="dashboard">
-  <div class="container-fluid">
-    <div class="jumbotron">
-  	<h1 class="mb-4">Hello, <%= currentUser.username %>!</h1>
+  <div class="container">
+    <div class="d-flex justify-content-between mb-5">
+        <div class="today">
+          <span class="today-piece  middle  date h1"></span>
+          <span class="today-piece  top  day h2"></span>
+          <span class="today-piece  middle  month"></span>
+          <span class="today-piece  bottom  year"></span>
+        </div>
+        <div class="add dropdown show">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/task/new">Add Task</a>
+            <a class="dropdown-item" href="/note/new">Add Note</a>
+            <a class="dropdown-item" href="/product/new">Add Product</a>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <% note.forEach((note) => { %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="note">Note</h5>
+              <h4 class="card-title"><%= note.title %></h4>
+              <p class="card-text"><%= note.text %></p>
+              <form class="d-inline" action="/note/<%=note._id %>?_method=DELETE" method="POST">
+                                      <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                                  </form>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+</div>
+
     <div class="row">
       <div class="recent-notes card">
         <div class="card-body p-0">
@@ -28,7 +59,7 @@
   	<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
   	<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   	<p class="lead"><a class="btn btn-primary  mt-2" href="#" role="button">Learn more</a></p>
-    </div>
+
   </div>
   <div class="p-3 border rounded"><% tasks.forEach((task) => { %>
     <div class="row p-3">
